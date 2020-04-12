@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 //import react in our code.
 import {  View,TextInput,Image, Button } from 'react-native';
 //import all the components we are going to use.
-
+import style from '../Style'
 export default class Search extends React.Component {
  
   static navigationOptions = {
@@ -32,7 +32,7 @@ export default class Search extends React.Component {
             style={{ height: 40,  borderColor: 'gray', borderWidth: 1 }}
            value={this.state.city}
             />
-            <Button onPress={()=>{this.submit()}} title="Rechercher"/>
+            <Button color={style.color} onPress={()=>{this.submit()}} title="Rechercher"/>
       </View>
     );
   }
