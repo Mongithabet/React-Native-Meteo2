@@ -4,17 +4,21 @@ import React, { Component } from 'react';
 import {  View,TextInput,Image, Button } from 'react-native';
 //import all the components we are going to use.
 import style from '../Style'
-export default class Search extends React.Component {
- 
+import {createStackNavigator} from 'react-navigation-stack';
+ import List from './List'
+class Search extends React.Component {
+
   static navigationOptions = {
-    tabBarIcon: ()=>{
-    return <Image source={require('./icons/home.png')} style={{width:20, height:20}}/> 
-    }
+    
+        title:'Rechercher une ville',
+        tabBarIcon: ()=>{
+          return <Image source={require('./icons/home.png')} style={{width:20, height:20}}/> 
+          }
   }
   constructor(props){
     super(props)
     this.state={
-       city: 'Montpelier' 
+       city: 'Montpellier' 
     }
     
    }
@@ -23,17 +27,37 @@ export default class Search extends React.Component {
        city:city
        })
    }
+   submit(){
+     this.props.navigation.navigate('Result',{city:this.state.city})
+
+   }  
   render() {
     return (
-      <View >
+      <View style={style.container} >
         <TextInput underlineColorAndroid='transparent'
-            onChangeText={(text)=>this.setCity(text)}
+            onChangeText={(text)=>this.setCity(text) }style={style.input}
 
-            style={{ height: 40,  borderColor: 'gray', borderWidth: 1 }}
            value={this.state.city}
             />
-            <Button color={style.color} onPress={()=>{this.submit()}} title="Rechercher"/>
+            <Button  color={style.color} onPress={()=>{this.submit()}} title="Rechercher"/>
       </View>
     );
   }
 }
+const  navigationOptions={
+  headerStyle:style.header,
+  headerTitleStyle:style.headerTitle
+}
+export default createStackNavigator({
+  
+  Search:{
+    screen:Search,
+    navigationOptions
+  }, 
+  Result:
+  {
+    screen:List,
+    navigationOptions
+  }
+ 
+})

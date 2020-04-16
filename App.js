@@ -44,6 +44,7 @@ const App = createStackNavigator({
       },
       headerTintColor: '#FFFFFF',
       title: 'TECHNOPC',
+      
     },
   },
 });

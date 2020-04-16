@@ -16,8 +16,8 @@ this.props.navigation.navigate('Search')
   }
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>A propos de l'application</Text>
+      <View style={style.container}>
+        <Text style={style.title}>A propos de l'application</Text>
         <Text>Application Creé par Thabet Mongi TECHNOPC</Text>
         <Button color={style.color} onPress={()=>this.search()} title='Rechercher une ville'/>
       </View>
