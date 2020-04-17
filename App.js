@@ -4,14 +4,21 @@ import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import {createStackNavigator} from 'react-navigation-stack';
 import About from './components/About'
 import Search from './components/Search'
+import {Image,ActivityIndicator, Icon} from 'react-native'
+import React from 'react'
+
 //Making TabNavigator which will be called in App StackNavigator
 //we can directly export the TabNavigator also but header will not be visible
 //as header comes only when we put anything into StackNavigator and then export
-
 const TabScreen = createMaterialTopTabNavigator(
   {
-    Search: { screen: Search },
+    Search: { screen: Search 
+    
+     
+    },
+    
     About: { screen: About },
+   
 
   },
   {
@@ -33,19 +40,7 @@ const TabScreen = createMaterialTopTabNavigator(
   }
 );
 
+
 //making a StackNavigator to export as default
-const App = createStackNavigator({
-  TabScreen: {
-    screen: TabScreen,
-    navigationOptions: {
-      headerStyle: {
-        
-        backgroundColor: '#633689',
-      },
-      headerTintColor: '#FFFFFF',
-      title: 'TECHNOPC',
-      
-    },
-  },
-});
-export default createAppContainer(App);
+
+export default createAppContainer(TabScreen);

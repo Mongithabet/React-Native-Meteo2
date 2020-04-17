@@ -3,7 +3,7 @@ import {View,Text,StyleSheet,Image} from 'react-native'
 import moment from 'moment'
 import 'moment/locale/fr'
 moment.locale('fr')
-
+import FadeInView from '../animation/fadeInView'
 export default class WeatherRow extends React.Component {
  
     day(){
@@ -38,6 +38,7 @@ export default class WeatherRow extends React.Component {
     render() {
        if(this.props.index === 0){
            return(
+               <FadeInView  delay = {this.props.index * 50}>
             <View style={[style.flex,style.view,style.firstView]}> 
             <View>
             <Text style={{color:'#FFF'}}> {this.day()}{this.date()}</Text>
@@ -45,11 +46,13 @@ export default class WeatherRow extends React.Component {
              </View>
 
         <Text style={[style.temp,{fontSize:35}]}>{Math.round(this.props.day)}°C</Text>   
-            </View>)
+            </View>
+            </FadeInView>)
         }else{
 
       
         return (
+        <FadeInView delay = {this.props.index * 50}>
             <View style={[style.flex,style.view]}> 
             <View style={style.flex}>
 
@@ -59,6 +62,7 @@ export default class WeatherRow extends React.Component {
              </View>
         <Text style={style.temp}>{Math.round(this.props.day)}°C</Text>   
             </View>
+            </FadeInView>
         )
     }  }
 }

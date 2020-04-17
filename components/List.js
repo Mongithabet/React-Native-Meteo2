@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Text,ActivityIndicator,FlatList, View,Image} from 'react-native'
+import {Image,ActivityIndicator,FlatList, View} from 'react-native'
 import WeatherRow from './weather/WeatherRow'
 import style from '../Style'
 import axios from 'axios'
@@ -21,7 +21,7 @@ constructor(props){
   super(props)
   
   this.state={
-    city: this.props.navigation.state.params.city,
+    city:this.props.navigation.state.params.city,
     report:null
   } ,
   setTimeout(()=>{
@@ -60,7 +60,7 @@ constructor(props){
         <FlatList
           data={this.state.report.list}
           
-          renderItem={({item,index}) => <WeatherRow day={item.main.temp} day2={item.dt} day3={item} index={parseInt(index.toString())} />}
+          renderItem={({item,index}) => <WeatherRow day={item.main.temp} day2={item.dt} day3={item} index={index} />}
 
         /> 
   </View>
