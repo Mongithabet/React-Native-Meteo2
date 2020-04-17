@@ -2,8 +2,15 @@
   "expo": {
     "name": "MeteoTPC",
     "slug": "meteotpc",
+    
+    "android":{
+       "package":"com.technopc.myapp",
+       "versionCode":1,
+       "permissions":[],
+       "icon":"./assets/icon.png"
+    },
+   
     "platforms": [
-      "ios",
       "android",
       "web"
     ],
@@ -21,9 +28,7 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
+  
     "description": "Created By TECHNOPC Gabes ",
     "githubUrl": "https://github.com/Mongithabet/React-Native-Meteo2.git"
   }
